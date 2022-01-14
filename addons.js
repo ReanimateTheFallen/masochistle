@@ -49,9 +49,14 @@ function loadPlayAgainButton () {
           observer.disconnect();
           document.body.removeChild(document.querySelector('game-app'));
           document.body.appendChild(new window.wordle.bundle.GameApp());
+
           const themeManager = document.querySelector('game-app').shadowRoot.querySelector('game-theme-manager');
-          themeManager.setDarkTheme(localStorage.getItem('darkTheme'));
-          themeManager.setColorBlindTheme(localStorage.getItem('colorBlindTheme'));
+          if (localStorage.getItem('darkTheme') === 'true')
+            themeManager.setDarkTheme(true);
+          
+          if (localStorage.getItem('colorBlindTheme') === 'true')
+            themeManager.setColorBlindTheme(true);
+
           const newModal = document.querySelector('game-app').shadowRoot.querySelector('game-modal');
           observer.observe(newModal, { attributes: true });
         });
