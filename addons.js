@@ -47,10 +47,11 @@ function loadPlayAgainButton () {
 
         button.addEventListener('click', () => {
           observer.disconnect();
-          const darkTheme = localStorage.getItem('darkTheme');
           document.body.removeChild(document.querySelector('game-app'));
           document.body.appendChild(new window.wordle.bundle.GameApp());
-          localStorage.setItem('darkTheme', darkTheme);
+          const themeManager = document.querySelector('game-app').shadowRoot.querySelector('game-theme-manager');
+          themeManager.setDarkTheme(localStorage.getItem('darkTheme'));
+          themeManager.setColorBlindTheme(localStorage.getItem('colorBlindTheme'));
           const newModal = document.querySelector('game-app').shadowRoot.querySelector('game-modal');
           observer.observe(newModal, { attributes: true });
         });
