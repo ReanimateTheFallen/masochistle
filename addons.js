@@ -26,17 +26,17 @@ function loadPlayAgainButton () {
         button.textContent = 'PLAY AGAIN';
         Object.assign(button.style, {
           'background-color': 'rgb(106, 170, 100)',
-          color: 'white',
+          'color': 'white',
           'font-family': 'inherit',
           'font-weight': 'bold',
           'border-radius': '4px',
-          cursor: 'pointer',
-           border: 'none',
+          'cursor': 'pointer',
+          'border': 'none',
           'user-select': 'none',
-          display: 'flex',
-         'justify-content': 'center',
+          'display': 'flex',
+          'justify-content': 'center',
           'align-items': 'center',
-           'text-transform': 'uppercase',
+          'text-transform': 'uppercase',
           '-webkit-tap-highlight-color': 'rgba(0,0,0,0.3)',
           'width': '80%',
           'font-size': '20px',
@@ -47,8 +47,10 @@ function loadPlayAgainButton () {
 
         button.addEventListener('click', () => {
           observer.disconnect();
+          const darkTheme = localStorage.getItem('darkTheme');
           document.body.removeChild(document.querySelector('game-app'));
           document.body.appendChild(new window.wordle.bundle.GameApp());
+          localStorage.setItem('darkTheme', darkTheme);
           const newModal = document.querySelector('game-app').shadowRoot.querySelector('game-modal');
           observer.observe(newModal, { attributes: true });
         });
