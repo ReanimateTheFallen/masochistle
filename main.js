@@ -1,3 +1,5 @@
+alert("Well, for you, this message is only an annoyance. But for me, it's everything. Thank you all for playing this, I never thought something made by me would get so popular. I'll only leave this message for a day as to not annoy you \n\n-astro")
+
 this.wordle = this.wordle || {}, this.wordle.bundle = function(e) {
     "use strict";
 
