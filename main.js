@@ -1,7 +1,5 @@
 this.wordle = this.wordle || {}, this.wordle.bundle = function(e) {
     "use strict";
-    
-    alert("New guess list pushed with the exception of the N word.\n\n - astro")
 
     function a(e) {
         return (a = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(e) {
